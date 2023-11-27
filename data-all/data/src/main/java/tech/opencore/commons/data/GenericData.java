@@ -1060,7 +1060,7 @@ public class GenericData implements Data, DataFactory, Serializable {
     }
 
     @Override
-    public Data load(InputStream in) throws Exception {
+    public Data deserialize(InputStream in) throws Exception {
         ObjectInputStream input = new ObjectInputStream(in);
         
         Object data = input.readObject();
@@ -1069,7 +1069,7 @@ public class GenericData implements Data, DataFactory, Serializable {
     }
 
     @Override
-    public void store(Data data, OutputStream out) throws Exception {
+    public void serialize(Data data, OutputStream out) throws Exception {
         ObjectOutputStream output = new ObjectOutputStream(out);
         
         output.writeObject(data);

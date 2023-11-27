@@ -27,7 +27,7 @@ import java.util.Set;
  * Atomic data contains exactly one atomic value. Non atomic data are either multiple values (array)
  * or multiple named values (object).
  * 
- * Data holding a single object 1 regardless the number of named values.
+ * Data holding a single object have a size of 1 regardless the number of named values.
  * 
  * @author Eric Boukobza
  */

@@ -34,25 +34,29 @@ public interface DataFactory {
     
     default public Data load(String filename) throws Exception {
         try (FileInputStream in = new FileInputStream(filename)) {
-            return load(in);
+            return deserialize(in);
         }
     }
+    
     default public Data load(File file) throws Exception {
         try (FileInputStream in = new FileInputStream(file)) {
-            return load(in);
+            return deserialize(in);
         }
     }
-    public Data load(InputStream in) throws Exception;
+    
+    public Data deserialize(InputStream in) throws Exception;
     
     default public void store(Data data, String filename) throws Exception {
         try (FileOutputStream out = new FileOutputStream(filename)) {
-            store(data, out);
+            serialize(data, out);
         }
     }
+    
     default public void store(Data data, File file) throws Exception {
         try (FileOutputStream out = new FileOutputStream(file)) {
-            store(data, out);
+            serialize(data, out);
         }
     }
-    public void store(Data data, OutputStream out) throws Exception;
+    
+    public void serialize(Data data, OutputStream out) throws Exception;
 }
